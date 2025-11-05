@@ -25,15 +25,6 @@ const Header = () => {
 
           <div className="d-flex align-items-center gap-3">
             <Clock />
-            <div className="d-flex gap-2">
-              <button className="btn btn-outline-light btn-sm rounded-pill px-3">
-                <User size={16} className="me-1" />
-                Login
-              </button>
-              <button className="btn btn-light btn-sm rounded-pill px-3 text-primary fw-semibold">
-                Sign Up
-              </button>
-            </div>
           </div>
         </div>
       </div>
