@@ -1,31 +1,64 @@
 .app-container {
   display: flex;
-  min-height:750px;
+  min-height: 100vh;
+  background-color: #f8f9fa;
 }
 
 .content {
-  width: 100%;
-}
-.create-post{
-  margin-left: 3%;
-}
-.postInput{
+  flex: 1;
   display: flex;
   flex-direction: column;
-  width: 40%;
-  margin-left: 20px;
-  gap: 10px;
+  overflow-x: hidden;
 }
-.twodivs {
-  display:flex;
-  flex-direction:column;
-  align-items: center;
+
+.hover-shadow {
+  transition: all 0.2s ease-in-out;
 }
-.welcome {
-  margin: 20px 0;
-  display: flex;
-  gap: 20px;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+
+.hover-shadow:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1) !important;
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.nav-link.active {
+  background-color: #0d6efd !important;
+  color: white !important;
+}
+
+.nav-link:hover {
+  background-color: rgba(13, 110, 253, 0.1);
+  color: #0d6efd !important;
+}
+
+.btn:focus {
+  box-shadow: none;
+}
+
+.form-control:focus {
+  border-color: #0d6efd;
+  box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+
+@media (max-width: 768px) {
+  .app-container {
+    flex-direction: column;
+  }
+  
+  .sidebar {
+    width: 100% !important;
+    min-height: auto;
+  }
 }

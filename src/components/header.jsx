@@ -1,70 +1,40 @@
+import { Search, User, MessageCircle } from "lucide-react";
 import Clock from "./clock";
 
 const Header = () => {
   return (
-    <header className="p-3 bg-dark text-white">
-      <div className="container">
-        <div className="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-          <a
-            href="/"
-            className="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none"
-          >
-            <svg
-              className="bi me-2"
-              width="40"
-              height="32"
-              role="img"
-              aria-label="Bootstrap"
-            >
-              <use xlinkHref="#bootstrap"></use>
-            </svg>
-          </a>
-          <ul className="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-            <li>
-              <a href="#" className="nav-link px-2 text-secondary">
-                Home
-              </a>
-            </li>
-            <li>
-              <a href="#" className="nav-link px-2 text-white">
-                Features
-              </a>
-            </li>
-            <li>
-              <a href="#" className="nav-link px-2 text-white">
-                Pricing
-              </a>
-            </li>
-            <li>
-              <a href="#" className="nav-link px-2 text-white">
-                FAQs
-              </a>
-            </li>
-            <li>
-              <a href="#" className="nav-link px-2 text-white">
-                About
-              </a>
-            </li>
-          </ul>
-
-          <form className="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-            <input
-              type="search"
-              className="htmlForm-control htmlForm-control-dark"
-              placeholder="Search..."
-              aria-label="Search"
-            />
-          </form>
-
-          <div className="text-end">
-            <button type="button" className="btn btn-outline-light me-2">
-              Login
-            </button>
-            <button type="button" className="btn btn-warning">
-              Sign-up
-            </button>
+    <header className="bg-primary text-white shadow-sm">
+      <div className="container-fluid px-4 py-3">
+        <div className="d-flex align-items-center justify-content-between">
+          <div className="d-flex align-items-center">
+            <MessageCircle size={32} className="me-2" />
+            <h4 className="mb-0 fw-bold">SocialHub</h4>
           </div>
-          <Clock />
+          
+          <div className="d-flex align-items-center flex-grow-1 mx-4">
+            <div className="position-relative w-100" style={{ maxWidth: "400px" }}>
+              <Search size={20} className="position-absolute top-50 start-0 translate-middle-y ms-3 text-muted" />
+              <input
+                type="search"
+                className="form-control ps-5 rounded-pill"
+                placeholder="Search posts, users..."
+                style={{ backgroundColor: "rgba(255,255,255,0.1)", border: "1px solid rgba(255,255,255,0.2)", color: "white" }}
+              />
+            </div>
+          </div>
+
+          <div className="d-flex align-items-center gap-3">
+            <Clock />
+            <div className="d-flex gap-2">
+              <button className="btn btn-outline-light btn-sm rounded-pill px-3">
+                <User size={16} className="me-1" />
+                Login
+              </button>
+              <button className="btn btn-light btn-sm rounded-pill px-3 text-primary fw-semibold">
+                Sign Up
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </header>

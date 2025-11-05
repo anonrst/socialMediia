@@ -1,84 +1,65 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import { Home, PlusCircle, User, Settings, LogOut, TrendingUp } from "lucide-react";
+
 const Sidebar = () => {
+  const location = useLocation();
+  
+  const isActive = (path) => location.pathname === path;
+  
   return (
-    <div
-      className="d-flex flex-column flex-shrink-0 p-3 bg-light"
-      style={{ width: "280px" }}
-    >
-      <a
-        href="/"
-        className="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none"
-      >
-        <svg className="bi me-2" width="40" height="32">
-          <use xlinkHref="#bootstrap"></use>
-        </svg>
-        <span className="fs-4">Sidebar</span>
-      </a>
-      <hr />
-      <ul className="nav nav-pills flex-column mb-auto">
-        <li className="nav-item">
-          <Link to="/" className="nav-link" aria-current="page">
-            <svg className="bi me-2" width="16" height="16">
-              <use xlinkHref="#home"></use>
-            </svg>
-            Home
-          </Link>
-        </li>
-        <li>
-          <Link to="create-post" className="nav-link link-dark">
-            <svg className="bi me-2" width="16" height="16">
-              <use xlinkHref="#speedometer2"></use>
-            </svg>
-            Create Post
-          </Link>
-        </li>
-      </ul>
-      <hr />
-      <div className="dropdown">
-        <a
-          href="#"
-          className="d-flex align-items-center link-dark text-decoration-none dropdown-toggle"
-          id="dropdownUser2"
-          data-bs-toggle="dropdown"
-          aria-expanded="false"
-        >
-          <img
-            src="https://github.com/mdo.png"
-            alt=""
-            width="32"
-            height="32"
-            className="rounded-circle me-2"
-          />
-          <strong>mdo</strong>
-        </a>
-        <ul
-          className="dropdown-menu text-small shadow"
-          aria-labelledby="dropdownUser2"
-        >
-          <li>
-            <a className="dropdown-item" href="#">
-              New project...
-            </a>
+    <div className="d-flex flex-column flex-shrink-0 p-0 bg-white border-end" style={{ width: "280px", minHeight: "100vh" }}>
+      <div className="p-4 border-bottom">
+        <div className="d-flex align-items-center">
+          <div className="bg-primary rounded-circle p-2 me-3">
+            <User size={20} className="text-white" />
+          </div>
+          <div>
+            <h6 className="mb-0 fw-semibold">John Doe</h6>
+            <small className="text-muted">@johndoe</small>
+          </div>
+        </div>
+      </div>
+
+      <nav className="flex-grow-1 p-3">
+        <ul className="nav nav-pills flex-column gap-2">
+          <li className="nav-item">
+            <Link 
+              to="/" 
+              className={`nav-link d-flex align-items-center rounded-3 ${isActive('/') ? 'active' : 'text-dark'}`}
+            >
+              <Home size={20} className="me-3" />
+              <span className="fw-medium">Home</span>
+            </Link>
           </li>
-          <li>
-            <a className="dropdown-item" href="#">
-              Settings
-            </a>
+          <li className="nav-item">
+            <Link 
+              to="/create-post" 
+              className={`nav-link d-flex align-items-center rounded-3 ${isActive('/create-post') ? 'active' : 'text-dark'}`}
+            >
+              <PlusCircle size={20} className="me-3" />
+              <span className="fw-medium">Create Post</span>
+            </Link>
           </li>
-          <li>
-            <a className="dropdown-item" href="#">
-              Profile
-            </a>
-          </li>
-          <li>
-            <hr className="dropdown-divider" />
-          </li>
-          <li>
-            <a className="dropdown-item" href="#">
-              Sign out
+          <li className="nav-item">
+            <a href="#" className="nav-link text-dark d-flex align-items-center rounded-3">
+              <TrendingUp size={20} className="me-3" />
+              <span className="fw-medium">Trending</span>
             </a>
           </li>
         </ul>
+      </nav>
+
+      <div className="p-3 border-top">
+        <div className="d-grid gap-2">
+          <button className="btn btn-outline-secondary btn-sm d-flex align-items-center justify-content-center">
+            <Settings size={16} className="me-2" />
+            Settings
+          </button>
+          <button className="btn btn-outline-danger btn-sm d-flex align-items-center justify-content-center">
+            <LogOut size={16} className="me-2" />
+            Sign Out
+          </button>
+        </div>
       </div>
     </div>
   );

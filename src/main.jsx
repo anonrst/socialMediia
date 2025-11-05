@@ -4,21 +4,26 @@ import App from "./App.jsx";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import PostList from "./components/postList.jsx";
 import CreatePost from "./components/createPost.jsx";
-import { createPostAction, postLoader } from "./lib/contexts.js";
+import { postLoader } from "./lib/contexts.js";
+
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
     children: [
-      { path: "/", element: <PostList />,loader: postLoader },
+      { 
+        path: "/", 
+        element: <PostList />, 
+        loader: postLoader 
+      },
       {
         path: "/create-post",
-        element: <CreatePost />,
-        action: createPostAction
+        element: <CreatePost />
       },
     ],
   },
 ]);
+
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <RouterProvider router={router} />

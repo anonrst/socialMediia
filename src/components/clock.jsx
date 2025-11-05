@@ -1,18 +1,27 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import { Clock as ClockIcon } from "lucide-react";
 
 const Clock = () => {
-  const [clock, setClock] = useState(Date.now());
+  const [time, setTime] = useState(new Date());
+
   useEffect(() => {
     const interval = setInterval(() => {
-      setClock(Date.now());
+      setTime(new Date());
     }, 1000);
     return () => clearInterval(interval);
-  }, [clock]);
+  }, []);
+
   return (
-    <>
-      <h1>Clock</h1>
-      <div>{new Date(clock).toLocaleTimeString()}</div>
-    </>
+    <div className="d-flex align-items-center text-white-50">
+      <ClockIcon size={16} className="me-2" />
+      <span className="small fw-medium">
+        {time.toLocaleTimeString([], { 
+          hour: '2-digit', 
+          minute: '2-digit',
+          hour12: true 
+        })}
+      </span>
+    </div>
   );
 };
 
