@@ -1,40 +1,69 @@
+import { Form } from "react-router-dom";
 const CreatePost = () => {
   return (
-    <htmlForm>
-      <div className="mb-3">
-        <label htmlFor="exampleInputEmail1" className="htmlForm-label">
-          Email address
+    <Form className="create-post" method="POST">
+      <div className="mb-3 postInput">
+        <label htmlFor="userId" className="htmlForm-label">
+          User ID
         </label>
         <input
-          type="email"
-          className="htmlForm-control"
-          id="exampleInputEmail1"
-          aria-describedby="emailHelp"
+          name="userId"
+          type="text"
+          id="userId"
+          placeholder="enter your userid"
         />
-        <div id="emailHelp" className="htmlForm-text">
-          We'll never share your email with anyone else.
-        </div>
       </div>
-      <div className="mb-3">
-        <label htmlFor="exampleInputPassword1" className="htmlForm-label">
-          Password
+      <div className="mb-3 postInput">
+        <label htmlFor="postTitle" className="htmlForm-label">
+          postTitle
         </label>
         <input
-          type="password"
-          className="htmlForm-control"
-          id="exampleInputPassword1"
+          type="text"
+          name="postTitle"
+          id="postTitle"
+          placeholder="enter your postTitle"
         />
       </div>
-      <div className="mb-3 htmlForm-check">
-        <input type="checkbox" className="htmlForm-check-input" id="exampleCheck1" />
-        <label className="htmlForm-check-label" htmlFor="exampleCheck1">
-          Check me out
+      <div className="mb-3 postInput">
+        <label htmlFor="postBody" className="htmlForm-label">
+          post details
         </label>
+        <textarea
+          type="text"
+          name="postBody"
+          rows={4}
+          id="postBody"
+          placeholder="tell us more about you"
+        />
       </div>
+      <div className="mb-3 postInput">
+        <label htmlFor="reaction" className="htmlForm-label">
+          reactions
+        </label>
+        <textarea
+          type="text"
+          name="reactions"
+          id="reactions"
+          placeholder="deiced your pst reaction"
+        />
+      </div>
+      <div className="mb-3 postInput">
+        <label htmlFor="tags" className="htmlForm-label">
+          post Tags
+        </label>
+        <textarea
+          type="text"
+          name="tags"
+          id="tags"
+          placeholder="give your tags name....."
+        />
+      </div>
+
       <button type="submit" className="btn btn-primary">
         Submit
       </button>
-    </htmlForm>
+    </Form>
   );
 };
+
 export default CreatePost;
